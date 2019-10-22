@@ -15,6 +15,8 @@ module.exports = {
         const { company, techs, price } = req.body;
         const { user_id } = req.headers;
 
+        console.log(req.file);
+
         const user = await User.findById(user_id);
 
         if(!user){
