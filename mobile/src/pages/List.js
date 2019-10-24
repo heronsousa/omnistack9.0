@@ -1,8 +1,6 @@
 import React from 'react';
 import { View } from 'react-native'; 
 
-function List() {
+export default function List() {
     return <View/>
 } 
-
-export default List();
