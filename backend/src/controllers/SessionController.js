@@ -8,8 +8,6 @@ module.exports = {
     
         if(!user){
             user = await User.create({ email });
-        } else {
-            return res.json({"res":"deu ruim"});
         }
 
         return res.json(user);

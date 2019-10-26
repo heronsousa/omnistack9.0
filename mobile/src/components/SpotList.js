@@ -14,6 +14,7 @@ import api from '../services/api';
 function SpotList({ tech, navigation }) {
 
     const [spots, setSpots] = useState([]);
+    const [thumb, setThumb] = useState([]);
 
     useEffect(() => {
         async function loadSpots(){
@@ -21,6 +22,8 @@ function SpotList({ tech, navigation }) {
                 params: {tech}
             })
             setSpots(response.data);
+
+            setThumb(response.data[0].thumbnail_url);
         }
 
         loadSpots();
@@ -44,8 +47,9 @@ function SpotList({ tech, navigation }) {
                     <View style={styles.listSpot}>
                         <Image
                             style={styles.spotImage}
-                            source={{ uri: item.thumbnail_url }}
+                            source={{ uri: 'http://localhost:3333/files/unb-terra-1570738207957.jpg' }}
                         />
+                        <Text style={styles.company}>{item.thumbnail_url}</Text>
                         <Text style={styles.company}>{item.company}</Text>
                         <Text style={styles.price}>{item.price ? `R$${item.price}/dia` : "GRATUITO"}</Text>
                         <TouchableOpacity onPress={() => handleNavigation(item._id)} style={styles.button}>

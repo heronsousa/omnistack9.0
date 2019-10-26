@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import api from '../../services/api';
 
-export default function Login() {
+export default function Login({ history }) {
     const [email, setEmail] = useState('');
 
     async function handleSubmit(e) {
@@ -11,7 +11,11 @@ export default function Login() {
         
         const { _id } = response.data;
 
-        localStorage.setItem( 'user_id', _id )
+        console.log(response.data);
+
+        localStorage.setItem( 'user_id', _id );
+
+        history.push('/dashboard');
     }
 
     return (
@@ -22,7 +26,7 @@ export default function Login() {
 
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">E-MAIL *</label>
-                <input 
+                <input  
                     id="email" 
                     type="email" 
                     placeholder="Seu melhor e-mail"
