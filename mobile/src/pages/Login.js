@@ -15,13 +15,13 @@ import  api from '../services/api';
 
 export default function Login({ navigation }) {
 
-    useEffect(() => {
-        AsyncStorage.getItem('user_id').then(user => {
-            if(user){
-                navigation.navigate('List');
-            }
-        })
-    }, []);
+    // useEffect(() => {
+    //     AsyncStorage.getItem('user_id').then(user => {
+    //         if(user){
+    //             navigation.navigate('List');
+    //         }
+    //     })
+    // }, []);
 
     const [email, setEmail] = useState('');
     const [techs, setTechs] = useState('');
